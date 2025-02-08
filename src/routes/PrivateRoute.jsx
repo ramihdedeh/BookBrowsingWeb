@@ -34,7 +34,7 @@ const PrivateRoute = ({ component: Component, permission, onUnauthorized }) => {
   if (!hasPermission) {
     console.log("User does not have permission, showing notification...");
     if (onUnauthorized) onUnauthorized("You do not have permission to access this page.");
-    return <Navigate to="/" replace />;
+   
   }
 
   console.log("User has access! Rendering the page...");

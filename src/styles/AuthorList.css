@@ -1,0 +1,78 @@
+/* Author List Background */
+.author-list-container {
+    height: 100vh;
+    background: url("https://source.unsplash.com/1600x900/?writers,authors") no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .author-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .author-list-title {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    color: white;
+  }
+  
+  /* Search Bar */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 50px;
+    padding: 1px;
+    max-width: 500px;
+  }
+  
+  .search-icon {
+    color: gray;
+    margin-right: 12px;
+  }
+  
+  /* Book Grid */
+  .author-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  /* Book Cover */
+  .book-cover {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Book Title */
+  .book-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Book Author */
+  .book-author {
+    font-size: 14px;
+    color: #555;
+  }
+  

@@ -1,0 +1,74 @@
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Left Section (Login Text & Button) */
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+}
+
+/* Right Section (Book Image) */
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  overflow: hidden; /* Prevents any overflow issues */
+}
+
+/* Full-width, centered image */
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the entire section */
+}
+
+/* Login Text */
+.login-title {
+    font-size: 20px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    margin-bottom: 10px !important;
+    
+    font-family: "Dancing Script", cursive !important;
+
+  }
+/* Login Button */
+.login-button {
+  background-color: #007bff !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 7px 30px !important;
+  border-radius: 8px !important;
+  font-family: "Dancing Script", cursive !important;
+}
+
+.login-button:hover {
+  background-color: #0056b3 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .right-section {
+    height: 250px;
+  }
+
+  .book-image {
+    width: 100%;
+    height: auto;
+  }
+}

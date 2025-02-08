@@ -13,9 +13,12 @@
     "@auth0/auth0-react": "^2.3.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.3",
     "@mui/material": "^6.4.3",
     "axios": "^1.7.9",
+    "framer-motion": "^12.4.1",
     "jwt-decode": "^4.0.0",
+    "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5"
