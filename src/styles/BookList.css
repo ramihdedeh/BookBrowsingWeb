@@ -56,35 +56,34 @@
     transform: scale(1.05);
   }
   
-  /*this is for the listed books*/
+ 
 
   /* Book Grid */
-/* Book Grid - Ensures Exactly 3 Books Per Row */
-/* Book Grid - Ensures 3 Books Per Row with Proper Spacing */
+
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 books per row */
-    gap: 60px; /* Adds spacing between books */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 60px; 
     justify-content: center;
     margin-top: 20px;
     padding: 10px;
   }
   
-  /* Book Card - Same Height for All Books */
+
   .book-card {
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     border-radius: 12px;
     background: white;
     backdrop-filter: blur(5px);
-    padding: 15px; /* Increased padding */
+    padding: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 100%; /* Ensures equal height */
+    height: 100%; 
   }
   
   /* Hover Effect */
@@ -136,15 +135,15 @@
   /* Responsive Fix */
   @media (max-width: 1024px) {
     .book-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 books per row on medium screens */
-      gap: 20px; /* Adjust spacing */
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
   }
   
   @media (max-width: 768px) {
     .book-grid {
-      grid-template-columns: repeat(1, 1fr); /* 1 book per row on small screens */
-      gap: 15px; /* Adjust spacing */
+      grid-template-columns: repeat(1, 1fr); 
+      gap: 15px; 
     }
   }
   

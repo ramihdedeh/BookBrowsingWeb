@@ -8,12 +8,12 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    padding-top: 100px; /* Ensures space for the profile section */
+    padding-top: 100px; 
 }
 
-/* ✅ Logout Button Fixed in the Top-Right Corner of the Entire Page */
+
 .logout-button {
-    position: fixed !important;  /* Makes it independent from any container */
+    position: fixed !important;  
     top: 10px !important;
     right: 10px !important;
     font-size: 14px;
@@ -22,7 +22,7 @@
     background-color: red;
     color: white;
     transition: transform 0.3s ease, background-color 0.3s;
-    z-index: 9999 !important;  /* Keeps it always on top */
+    z-index: 9999 !important; 
 }
 
 .logout-button:hover {
@@ -30,36 +30,36 @@
     transform: scale(1.05);
 }
 
-/* Profile Section with Bordered Background */
+
 .profile-section {
     background: url("../assets/book.avif") no-repeat center center/cover;
     width: 90%;
-    height: 300px; /* Increased height */
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin-bottom: 20px;
-    border: 5px solid white; /* Adds border */
-    border-radius: 20px; /* Smooth border */
+    border: 5px solid white; 
+    border-radius: 20px; 
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
 
-/* User Profile Image - Increased Size */
+
 .profile-avatar {
     width: 140px;
     height: 140px;
     border: 5px solid white;
     box-shadow: 0px 6px 15px rgba(0,0,0,0.4);
     position: absolute;
-    bottom: -50px; /* Ensures the avatar slightly overlaps */
+    bottom: -50px; 
 }
 
-/* Home Text */
+
 .home-text {
     font-family: "Poppins, sans-serif";
     color: #555;
-    margin-top: 80px; /* Adjusted for larger avatar */
+    margin-top: 80px; 
     margin-bottom: 20px;
 }
 
