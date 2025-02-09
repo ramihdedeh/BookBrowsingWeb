@@ -6,8 +6,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const userPermissions = {
   "grappasystems3@gmail.com": ["books", "authors"],
-  "grappasystems4@gmail.com": ["authors"], // Only authors, no books
-  "grappasystems5@gmail.com": ["books"], // Only books, no authors
+  "grappasystems4@gmail.com": ["authors"], // Can access authors + book details from authors
+  "grappasystems5@gmail.com": ["books"],
 };
 
 const AuthorList = () => {
@@ -36,7 +36,6 @@ const AuthorList = () => {
   const searchAuthor = async (pageNumber) => {
     setLoading(true);
     try {
-      // Step 1: Search for the author
       const authorResponse = await axios.get(`https://openlibrary.org/search/authors.json?q=${query}`);
       if (!authorResponse.data.docs.length) {
         setBooks([]);
@@ -45,14 +44,11 @@ const AuthorList = () => {
         return;
       }
 
-      // Step 2: Get the first matching author
       const author = authorResponse.data.docs[0];
       setAuthorName(author.name);
 
-      // Step 3: Search for books by this author with pagination
       const booksResponse = await axios.get(`https://openlibrary.org/search.json?author=${author.name}&page=${pageNumber}`);
 
-      // Store search results in localStorage
       localStorage.setItem("authorSearchQuery", query);
       localStorage.setItem("authorSearchResults", JSON.stringify([...books, ...booksResponse.data.docs]));
       localStorage.setItem("authorSearchPage", pageNumber);
@@ -82,7 +78,7 @@ const AuthorList = () => {
         onClick={() => {
           if (searchQuery.length >= 3) {
             setQuery(searchQuery);
-            setPage(1); // Reset to first page on new search
+            setPage(1);
           } else {
             alert("Please enter at least 3 characters.");
           }
@@ -108,49 +104,30 @@ const AuthorList = () => {
             No books found for this author.
           </Typography>
         )}
-        {books.map((book, index) => {
-          const canAccessBooks = userPermissions[user.email]?.includes("books"); // Check if user has "books" permission
-
-          return (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card
-                onClick={() => canAccessBooks && navigate(`/books/${book.key.split("/").pop()}`)}
-                style={{
-                  cursor: canAccessBooks ? "pointer" : "not-allowed",
-                  opacity: canAccessBooks ? 1 : 0.5, // Make unauthorized books less visible
-                  transition: "0.3s",
-                  "&:hover": {
-                    transform: canAccessBooks ? "scale(1.05)" : "none",
-                  },
-                }}
-              >
-                {/* Book Cover (Placeholder if missing) */}
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://via.placeholder.com/150"}
-                  alt={book.title}
-                />
-                <CardContent>
-                  <Typography
-                    variant="h6"
-                    style={{
-                      textDecoration: canAccessBooks ? "underline" : "none",
-                      color: canAccessBooks ? "#007bff" : "gray",
-                      cursor: canAccessBooks ? "pointer" : "not-allowed",
-                      pointerEvents: canAccessBooks ? "auto" : "none",
-                    }}
-                  >
-                    {book.title || "Unknown Title"}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          );
-        })}
+        {books.map((book, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card
+              onClick={() => navigate(`/books/${book.key.split("/").pop()}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <CardMedia
+                component="img"
+                height="200"
+                image={book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://via.placeholder.com/150"}
+                alt={book.title}
+              />
+              <CardContent>
+                <Typography variant="h6">{book.title || "Unknown Title"}</Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {book.author_name ? book.author_name.join(", ") : "Unknown Author"}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
       </Grid>
 
-      {/* Load More Button (Ensures It Shows Correctly) */}
+      {/* Load More Button */}
       {books.length > 0 && (
         <Button
           variant="contained"
