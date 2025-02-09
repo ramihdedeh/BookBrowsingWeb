@@ -12,7 +12,7 @@ Welcome to the **Book & Author Browsing App**! This project is a **React-based w
 ✅ **Sort by Title or Publish Year**  
 ✅ **Role-Based Access** - Users have specific permissions  
 ✅ **Interactive & Responsive UI** (Material-UI)  
-✅ **Optimized Performance** (Lazy Loading & Caching)  
+
 
 ---
 
@@ -38,5 +38,5 @@ REACT_APP_API_BASE_URL=https://openlibrary.org
 ### 4️⃣ **Run the Application**
 ```sh
 npm run dev
-
+```
 The app will run at http://localhost:3000/ 
