@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import "../styles/Login.css"; // Import CSS
-import bookImage from "../assets/books.jpeg"; // Import image
+import bookImage from "../assets/book.avif"; // Import image
 
 const LoginPage = () => {
   const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
